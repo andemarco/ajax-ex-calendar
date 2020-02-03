@@ -8,6 +8,9 @@ h1 {
   justify-content: space-between;
 }
 .month_days {
-  width: 1.5%;
+  width: 15%;
   margin: 0 auto;
+}
+.red {
+  color: red;
 }
