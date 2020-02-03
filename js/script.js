@@ -1,37 +1,41 @@
-// DEFINISCO IL MOMENTO
 $(document).ready(function(){
-  var month = 1;
-  stampDay(month);
-  ajaxCall ();
+  var month = 1; //MESE GENNAIO
+  stampDay(month); // STAMPO CALENDARIO GENNAIO
+  ajaxCall (); //VERIFICO FESTIVITA GENNAIO
 
   $('.change_month .next_month').on('click', function() {
-    month = month + 1;
+    month = month + 1;//SE CLICCO NEXT, MESE SUCCESSIVO
     if (month > 12) {
       alert('SOLO 2018/NO 2019');
     } else {
-      $('.month_days li').remove();
-      stampDay(month);
-      ajaxCall ();
+      $('.month_days li').remove();//PULISCO CALENDARIO
+      stampDay(month);//STAMPO CALENDARIO MESE SUCCESSIVO
+      ajaxCall ();//VERIFICO FESTIVITA MESE SUCCESSIVO
     }
     });
 
     $('.change_month .prev_month').on('click', function() {
       month = month - 1;
       if (month < 1) {
-        alert('SOLO 2018/NO 2017');
+        alert('SOLO 2018/NO 2017');//SE CLICCO PREV, MESE PRECEDENTE
       } else {
-        $('.month_days li').remove();
-        stampDay(month);
-        ajaxCall ();
+        $('.month_days li').remove();//PULISCO CALENDARIO
+        stampDay(month);//STAMPO CALENDARIO MESE PRECEDENTE
+        ajaxCall ();//VERIFICO FESTIVITA MESE PRECEDENTE
       }
       });
 
 
-// CREO FUNZIONE PER INSERIRE GIORNI
+// CREO FUNZIONE PER STAMPARE A SCHERMO
+// QUI STAMPO IL MESE DI RIFERIMENTO
 function stampDay(month) {
+    var months = ['Gennaio', 'Febbraio', 'Marzo', 'Aprile', 'Maggio', 'Giugno', 'Luglio', 'Agosto', 'Settembre', 'Ottobre', 'Novembre', 'Dicembre']
+    var months = months[month - 1];
+    console.log(months);
     var month_days = moment("2018-"+(month), "YYYY-MM").daysInMonth();
-    console.log(month);
-    console.log(month_days);
+    $('.month_name').text(months);
+
+// QUI STAMPO I GIORNI DEL MESE
     for (var i = 1; i <= month_days; i++) {
       var day = '2018' + '-' + addZero(month) +  '-' + addZero(i);
       var source = document.getElementById("entry-template").innerHTML;
@@ -47,9 +51,9 @@ function stampDay(month) {
 
 
 // CHIAMO AJAX PER FESTIVITA'
-function ajaxCall (holiday) {
+function ajaxCall () {
   $.ajax({
-    url: "https://flynn.boolean.careers/exercises/api/holidays?year=2018&month=0",
+    url: "https://flynn.boolean.careers/exercises/api/holidays?year=2018&month="+(month - 1),
     method: "GET",
     success: function (data, stato) {
       var holiday = data.response;
