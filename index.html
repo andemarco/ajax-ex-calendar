@@ -7,18 +7,25 @@
     <!-- JQUERY -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- HANDLEBARS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.2/handlebars.min.js">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.2/handlebars.min.js" integrity="sha256-MlbTFXdOM7EZphnz0OyXQqPt2zBOjfRXCq14CfgSsS0=" crossorigin="anonymous"></script>
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
     <title></title>
   </head>
   <body>
+    <h1 class="month_name">GENNAIO 2018</h1>
+    <div class="change_month">
+      <span>Mese Precedente</span>
+      <span>Mese Successivo</span>
+    </div>
+    <ul class="month_days">
+
+    </ul>
 
 
     <script id="entry-template" type="text/x-handlebars-template">
       <div class="entry">
-        <h1>{{title}}</h1>
-        <div class="body">
-          {{body}}
-        </div>
+        <li>{{day}}</li>
       </div>
     </script>
     <!-- JAVASCRIPT -->

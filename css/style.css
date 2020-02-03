@@ -1,0 +1,13 @@
+h1 {
+  text-align: center;
+}
+.change_month {
+  width: 30%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+.month_days {
+  width: 1.5%;
+  margin: 0 auto;
+}
