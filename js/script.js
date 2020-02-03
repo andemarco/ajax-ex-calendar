@@ -10,7 +10,8 @@ $(document).ready(function(){
     var source = document.getElementById("entry-template").innerHTML;
     var template = Handlebars.compile(source);
     var context = {
-      day: day};
+      day: day,
+      fest: day};
       console.log(context.day);
     var html = template(context);
     $('.month_days').append(html);
@@ -30,6 +31,7 @@ $.ajax({
         var dayHoli = $(this).attr('data-holi');
         if (dayHoli == holiday[i].date) {
           $(this).addClass('red');
+          $(this).append(' ' + holiday[i].name)
         }
       });
     }
@@ -38,6 +40,8 @@ $.ajax({
     alert("E' avvenuto un errore. " + errore);
   }
 });
+
+
 
 // ADDZERO
 function addZero(num) {
