@@ -27,8 +27,8 @@ $.ajax({
     for (var i = 0; i < holiday.length; i++) {
       console.log(holiday[i].date);
       $('li').each(function() {
-        var dayAttr = $(this).attr('data-holi');
-        if (dayAttr == holiday[i].date) {
+        var dayHoli = $(this).attr('data-holi');
+        if (dayHoli == holiday[i].date) {
           $(this).addClass('red');
         }
       });
@@ -38,6 +38,7 @@ $.ajax({
     alert("E' avvenuto un errore. " + errore);
   }
 });
+
 // ADDZERO
 function addZero(num) {
   if (num < 10) {
