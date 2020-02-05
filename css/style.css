@@ -1,16 +1,48 @@
+* {
+  font-family: 'Cambay', sans-serif;
+}
+
 h1 {
   text-align: center;
 }
 .change_month {
-  width: 30%;
+  width: 70%;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
 }
+.change_month span {
+  background-color: lightgrey;
+  height: 40px;
+  line-height: 40px;
+  padding: 10px;
+}
+.change_month span:hover {
+  cursor: pointer;
+  background-color: grey;
+  color: white;
+}
 .month_days {
-  width: 15%;
+  width: 60%;
   margin: 0 auto;
+  margin-top: 40px;
 }
 .red {
   color: red;
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+li {
+  list-style: none;
+  display: block;
+  width: calc(100%/7);
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+}
+li:hover {
+  background-color: lightgrey;
 }

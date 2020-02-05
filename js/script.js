@@ -33,15 +33,16 @@ function stampDay(month) {
     var months = months[month - 1];
     console.log(months);
     var month_days = moment("2018-"+(month), "YYYY-MM").daysInMonth();
-    $('.month_name').text(months);
+    $('.month_name').text(months + ' 2018');
 
 // QUI STAMPO I GIORNI DEL MESE
     for (var i = 1; i <= month_days; i++) {
       var day = '2018' + '-' + addZero(month) +  '-' + addZero(i);
+      var dayStamp = addZero(i);
       var source = document.getElementById("entry-template").innerHTML;
       var template = Handlebars.compile(source);
       var context = {
-        day: day,
+        day: dayStamp,
         fest: day};
         console.log(context.day);
       var html = template(context);
